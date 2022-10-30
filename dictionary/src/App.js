@@ -1,26 +1,39 @@
-import logo from './logo.svg';
+import {useState} from 'react';
 import './App.css';
 import Dictionary from './Dictionary'
 
-function App() {
+const App = () => {
+  const [userWord, setWord] = useState('');
+
+  const handleChange = event => {
+    setWord(event.target.value);
+  }
+
+  const [buttonText, setButtonText] = useState('Search word');
+
+  function handleClick() {
+
+    setButtonText(
+      <div>
+        <Dictionary userWord={userWord} />
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input
+        type="text"
+        id="word"
+        name="word"
+        onChange={handleChange}
+        value={userWord}
+        />
+
+      <button onClick={handleClick()} id="searchWordBtn">{buttonText}</button>
+
     </div>
-  );
+  )
 }
 
 export default App;

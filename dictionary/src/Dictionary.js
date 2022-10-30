@@ -12,12 +12,12 @@ class Dictionary extends React.Component {
     }
     
     
-    dictionary(word) {
+    dictionary({userWord}) {
 
-        const userWord = word;
+        const word = userWord;
 
         // fetching the json body and stroing in array
-        fetch('https://www.dictionaryapi.com/api/v3/references/collegiate/json/${userWord}?key=${dictionary.env.DICTIONARY_API_KEY}')
+        fetch('https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${dictionary.env.DICTIONARY_API_KEY}')
         .then(res => res.json())
         .then(
             (result) => {
@@ -49,4 +49,6 @@ class Dictionary extends React.Component {
             </div>
         )}
     }
-}    
+}
+
+export default Dictionary;
