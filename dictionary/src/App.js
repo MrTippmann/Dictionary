@@ -2,7 +2,7 @@ import {useState} from 'react';
 import './App.css';
 import Dictionary from './Dictionary'
 
-const App = () => {
+const Word = () => {
   const [userWord, setWord] = useState('');
 
   const handleChange = event => {
@@ -36,4 +36,13 @@ const App = () => {
   )
 }
 
-export default App;
+function App() {
+  return (
+
+    <div>
+      {Word()}
+    </div>
+  
+    );
+}
+  export default App;
